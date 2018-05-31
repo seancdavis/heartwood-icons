@@ -1,0 +1,48 @@
+<main class="container my-5">
+
+  <!-- 01: Basic Example -->
+  <div id="example-01" class="mb-5">
+    <h2>Basic Example</h2>
+    <p>This is the functionality out of the box, when including Bootstrap 4.x:</p>
+    <%= heartwood_uploader %>
+  </div>
+
+  <!-- 02: JavaScript Events -->
+  <div id="example-02" class="mb-5">
+    <h2>JavaScript Events</h2>
+    <p>Listens for upload events and prints name on line below:</p>
+    <p><strong>Current Event: </strong><span id="e02-evt"></span></p>
+    <%= heartwood_uploader form_id: 'hw-ex-02' %>
+    <script>
+      $(document).ready(function() {
+        $('#hw-ex-02').on('heartwood.uploader.begin', (event, data) => $('#e02-evt').text('begin'));
+        $('#hw-ex-02').on('heartwood.uploader.progress', (event, data) => $('#e02-evt').text('progress'));
+        $('#hw-ex-02').on('heartwood.uploader.success', (event, data) => $('#e02-evt').text('success'));
+        $('#hw-ex-02').on('heartwood.uploader.fail', (event, data) => $('#e02-evt').text('fail'));
+      });
+    </script>
+  </div>
+
+  <!-- 03: Custom Conatiner -->
+  <div id="example-03" class="mb-5">
+    <h2>Custom Container</h2>
+
+    <p>Uses a custom container to drop the upload template in. So I can put it here:</p>
+    <div id="hw-tmpl-03"></div>
+    <p>And not below, where the form is rendered.</p>
+
+    <%= heartwood_uploader template_container_id: 'hw-tmpl-03' %>
+  </div>
+
+  <!-- 04: Custom Trigger -->
+  <div id="example-04" class="mb-5">
+    <h2>Custom Trigger</h2>
+
+    <p>Uses a custom trigger for choosing a file, which means the default upload
+    button is hidden, so I can <a href="javascript:void(0)"
+    id="hw-trigger-04">click here</a> to initialize the file picker.</p>
+
+    <%= heartwood_uploader trigger_id: 'hw-trigger-04', upload_field_id: 'test-id', url_field_name: 'test-name', url_field_class: 'test-class' %>
+  </div>
+
+</main>
