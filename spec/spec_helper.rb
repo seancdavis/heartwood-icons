@@ -1,5 +1,5 @@
 require 'bundler/setup'
-require 'heartwood/uploader'
+require 'heartwood/icons'
 
 require 'faker'
 

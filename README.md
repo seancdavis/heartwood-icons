@@ -1,7 +1,7 @@
 Heartwood::Icons
 ==========
 
-Heartwood's uploader gem provides a simple DSL for uploading assets directly to Amazon S3.
+Heartwood's icons gem provides a simple DSL for uploading assets directly to Amazon S3.
 
 Installation
 ----------
