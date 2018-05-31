@@ -1,13 +1,13 @@
 require 'rails'
 
-require 'heartwood/uploader/version'
-# require 'heartwood/uploader/engine'
-# require 'heartwood/uploader/railtie'
-# require 'heartwood/uploader/configuration'
+require 'heartwood/icons/version'
+# require 'heartwood/icons/engine'
+# require 'heartwood/icons/railtie'
+# require 'heartwood/icons/configuration'
 
-# require 'heartwood/uploader/form'
-# require 'heartwood/uploader/helper'
-# require 'heartwood/uploader/uploadable'
+# require 'heartwood/icons/form'
+# require 'heartwood/icons/helper'
+# require 'heartwood/icons/uploadable'
 
 module Heartwood
   module Icons
