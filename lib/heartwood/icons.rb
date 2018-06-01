@@ -1,13 +1,10 @@
 require 'rails'
 
 require 'heartwood/icons/version'
-# require 'heartwood/icons/engine'
-# require 'heartwood/icons/railtie'
-# require 'heartwood/icons/configuration'
+require 'heartwood/icons/engine'
+require 'heartwood/icons/railtie'
 
-# require 'heartwood/icons/form'
-# require 'heartwood/icons/helper'
-# require 'heartwood/icons/uploadable'
+require 'heartwood/icons/helper'
 
 module Heartwood
   module Icons
