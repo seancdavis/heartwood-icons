@@ -53,7 +53,7 @@ module Heartwood
         # Strips attributes that tend to interfere with making the sprite render
         # properly and helps to give the developer more control over the styles.
         def strip_attrs(doc)
-          %w{id stroke stroke-width fill fill-rule transform}.each do |attr|
+          %w{id stroke stroke-width fill fill-rule}.each do |attr|
             doc.css("[#{attr}]").each { |n| n.delete(attr) }
           end
           doc

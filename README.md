@@ -23,7 +23,39 @@ Or install it yourself as:
 Usage
 ----------
 
-...
+Hearwood's main feature is its rails generator, which builds an SVG icon sprite from a series of icons in your project.
+
+It expects your icons to conform to a specific structure:
+
+- Icons should be placed in `app/assets/images/icons`. No other directories are searched for icons.
+- Icon files should use `.svg` extension. The generator only looks for SVG files in the icons directory.
+- The content of the icon must exist within top-level groups (`<g>` elements).
+- The artwork should be constrained to a `256px` by `256px` space. (You can build in padding using the `transform` attribute).
+
+_See the `spec/support/example_icon.svg` for an example of a raw icon._
+
+When you're ready to build your sprite, you can do so from the command line:
+
+    $ bundle exec rails generate heartwood:icons:sprite
+
+This creates the sprite file at `app/assets/images/icons.svg`.
+
+Then, to render an icon in your app, use the `heartwood_icon` helper. This will render the SVG inline, which provides the benefit of not making an additional requestion to the server.
+
+```erb
+<%= heartwood_icon 'icon_name' %>
+```
+
+Replace `icon_name` with the filename of the icon you wish to render (without the `.svg` extension). you may also pass a hash of options, including:
+
+- `class`: Classes to add to the outer `<svg>` element.
+- `size`: Adds `hw-icon-#{size}` class to the outer `<svg>` element.
+
+For example, to add your own class to a user icon, it may look something like this:
+
+```erb
+<%= heartwood_icon 'user', class: 'my-user-icon' %>
+```
 
 Development
 ----------
