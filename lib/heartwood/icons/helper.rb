@@ -5,6 +5,7 @@ module Heartwood
       def heartwood_icon(name, options = {})
         classes  = "hw-icon hw-icon-#{name}"
         classes += " hw-icon-#{options[:size]}" if options[:size].present?
+        classes += " hw-icon-#{options[:color]}" if options[:color].present?
         classes += " #{options[:class]}" if options[:class].present?
 
         href = "#{image_path('icons.svg')}##{name}"

@@ -23,6 +23,8 @@ Or install it yourself as:
 Usage
 ----------
 
+### Generator
+
 Hearwood's main feature is its rails generator, which builds an SVG icon sprite from a series of icons in your project.
 
 It expects your icons to conform to a specific structure:
@@ -40,9 +42,11 @@ When you're ready to build your sprite, you can do so from the command line:
 
 This creates the sprite file at `app/assets/images/icons.svg`.
 
-Then, to render an icon in your app, use the `heartwood_icon` helper. This will render the SVG inline, which provides the benefit of not making an additional requestion to the server.
+### View Helper
 
-```erb
+To render an icon in your app, use the `heartwood_icon` helper. This will render the SVG inline, which provides the benefit of not making an additional requestion to the server.
+
+```html+erb
 <%= heartwood_icon 'icon_name' %>
 ```
 
@@ -50,11 +54,49 @@ Replace `icon_name` with the filename of the icon you wish to render (without th
 
 - `class`: Classes to add to the outer `<svg>` element.
 - `size`: Adds `hw-icon-#{size}` class to the outer `<svg>` element.
+- `color`: Adds `hw-icon-#{color}` class to the outer `<svg>` element.
+
+#### Custom Classes
 
 For example, to add your own class to a user icon, it may look something like this:
 
-```erb
+```html+erb
 <%= heartwood_icon 'user', class: 'my-user-icon' %>
+```
+
+#### Sizes
+
+Sizes follow an `8px` base scale from `8px` to `256px`. The value to pass the explicit pixel value at which you'd like the icon to be rendered. So, for example, if you want a `128px` icon, you may have something like this:
+
+```html+erb
+<%= heartwood_icon 'checkmark', size: 128 %>
+```
+
+The default size does not follow this convention, but is instead set to `1rem`.
+
+_Note: Icons are assumed to be built upon a square space, so when you set the size, you are setting the height and width of the outer `<svg>` element._
+
+#### Colors
+
+There are a default set of color options available, using some basic sass colors, as follows:
+
+```scss
+$heartwood-icon-colors: (
+  blue: blue,
+  cyan: cyan,
+  green: green,
+  magenta: magenta,
+  red: red,
+  yellow: yellow
+) !default;
+```
+
+You can override these values by defining your own `$heartwood-icon-colors` map in your stylesheet **before** importing the `heartwood/icons` stylesheet.
+
+From there, the color you use simply becomes the name of the key in the map:
+
+```html+erb
+<%= heartwood_icon 'delete', color: 'red' %>
 ```
 
 Development

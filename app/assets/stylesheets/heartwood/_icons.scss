@@ -1,0 +1,34 @@
+.hw-icon {
+  display: inline-block;
+  height: 1rem;
+  line-height: 1;
+  vertical-align: middle;
+  width: 1rem;
+
+  use {
+    fill: currentColor;
+  }
+}
+
+@for $i from 1 through 32 {
+  $size: $i * 8;
+  .hw-icon-#{$size} {
+    height: #{$size}px;
+    width: #{$size}px;
+  }
+}
+
+$heartwood-icon-colors: (
+  blue: blue,
+  cyan: cyan,
+  green: green,
+  magenta: magenta,
+  red: red,
+  yellow: yellow
+) !default;
+
+@each $name, $color in $heartwood-icon-colors {
+  .hw-icon-#{$name} use {
+    fill: $color;
+  }
+}
