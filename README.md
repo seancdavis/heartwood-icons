@@ -1,6 +1,8 @@
 Heartwood::Icons
 ==========
 
+[![Build Status](https://travis-ci.org/seancdavis/heartwood-icons.svg?branch=master)](https://travis-ci.org/seancdavis/heartwood-icons)
+
 Heartwood's icons gem provides a simple DSL for uploading assets directly to Amazon S3.
 
 Installation
